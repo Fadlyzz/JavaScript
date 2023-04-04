@@ -1,0 +1,16 @@
+var num1 = 100;
+var num2 = 50;
+let a = 10;
+let b = 12;
+document.getElementById("1").innerHTML =
+"Nilai TRUE && TRUE adalah = " + a<5&&b>10;
+document.getElementById("2").innerHTML =
+"Nilai FALSE && TRUE adalah = " + a>15&&b>10;
+document.getElementById("3").innerHTML =
+"Nilai TRUE || TRUE adalah = " + a>15||b>10;
+document.getElementById("4").innerHTML =
+"Nilai FALSE || TRUE adalah = " + a>15||b>10;
+document.getElementById("5").innerHTML =
+"Nilai !(TRUE || TRUE) adalah = " + a<15&&b>10;
+document.getElementById("6").innerHTML = 
+"Nilai !TRUE adalah = " + a<15;

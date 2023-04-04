@@ -1,0 +1,15 @@
+let a = 20.5;
+let b = 7;
+let c = 35;
+let h1 = a+b+c;
+let h2 = a-b-c;
+let h3 = a/b/c;
+let h4 = a*b*c;
+document.getElementById("1").innerHTML =
+"Hasil A + B + C adalah = " + h1;
+document.getElementById("2").innerHTML =
+"Hasil A - B - C adalah = " + h2;
+document.getElementById("3").innerHTML =
+"Hasil A / B / C adalah = " + h3;
+document.getElementById("4").innerHTML =
+"Hasil A x B x C adalah = " + h4;
