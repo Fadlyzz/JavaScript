@@ -1,2 +1,2 @@
-/*/Menampilkan Kalimat/*/
+//Menampilkan Kalimat
 console.log("Hello World!");

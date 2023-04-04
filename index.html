@@ -3,21 +3,25 @@
 <head>
         <title>Tugas 1</title>
         <script>
-                alert("Selamat Datang Silahkan klik Ok!");
-
-                function sayHello() {
-                        alert("Hello Guys !");
-                }
-                </script>
+                alert("Selamat Datang!");
+                function sayHello() { alert("Salam Kenal!");}
+        </script>
         <link rel="stylesheet" href= "style.css">
 <head>
 <body>
 <h1 style="text-align: center;">TUGAS 1</h1>
+<div style="text-align:center;"id="cek"></div>
+    <hr>
 <p style="text-align:center;">Bagus Fadly Hidayatullah</p>
+<p style="text-align:center;">2022010027</p>
 <p style="text-align:center;">RPL A 2022</p>
-<p style="text-align:center;">Silahkan Masuk ke Console !</p>
-<button onclick="sayHello()">Coba Klik!</button>
+<hr>
+<button onclick="sayHello()">Menyapa</button>
 </body>
-<script src= "js/datadiri.js"></script>
-</body>
+<script>
+        document.write("<hr>");
+        var hasil = document.getElementById("cek");
+        hasil.innerHTML = "<p>Praktik Pemrograman Komputer";
+
+</script>
 </html>
