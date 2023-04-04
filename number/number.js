@@ -1,0 +1,17 @@
+var num1 = 100;
+var num2 = 50;
+var a = (num1+num2);
+var b = (num1-num2);
+var c = (num1*num2);
+var d = (num1/num2);
+var e = (num1%num2);
+document.getElementById("1").innerHTML =
+"Nilai A + B adalah = " + a;
+document.getElementById("2").innerHTML =
+"Nilai A - B adalah = " + b;
+document.getElementById("3").innerHTML =
+"Nilai A x B adalah = " + c;
+document.getElementById("4").innerHTML =
+"Nilai A / B adalah = " + d;
+document.getElementById("5").innerHTML =
+"Nilai A % B adalah = " + e;

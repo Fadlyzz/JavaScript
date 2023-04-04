@@ -1,0 +1,9 @@
+let a = "Bagus Fadly Hidayatullah";
+let b = "Fadly";
+let c = "Gatau Apa";
+document.getElementById("1").innerHTML =
+"Nama = " + a;
+document.getElementById("2").innerHTML =
+"Nama Panggilan = " + b;
+document.getElementById("3").innerHTML =
+"Motivasi = " + c;
