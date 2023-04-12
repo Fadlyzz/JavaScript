@@ -1,8 +1,12 @@
-let array = ["Atep","Anam","Khoirul","Fadly","Fahmi","Bagus"];
+// Array untuk menyimpan data nama teman dan hobi
+var namaTeman = ["Atep","Anam","Khoirul","Fadly","Fahmi","Bagus"];
+namaTeman.push("Rio");
+delete namaTeman[5];
 document.getElementById("1").innerHTML = 
-"Array 0 = " + array[0] +"</br>" +
-"Array 1 = " + array[1] +"</br>" +
-"Array 2 = " + array[2] +"</br>" +
-"Array 3 = " + array[3] +"</br>" +
-"Array 4 = " + array[4] +"</br>" +
-"Array 5 = " + array[5];
+"Daftar Nama = "+(namaTeman);
+
+var hobi = ["Makan","Tidur","Main Bola","Basket","Badminton","Jogging"];
+hobi.push("Turu");
+delete hobi[1];
+document.getElementById("2").innerHTML = 
+"Daftar Hobi = "+(hobi);
