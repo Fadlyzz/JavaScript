@@ -2,28 +2,31 @@
 /* eslint-disable no-fallthrough */
 //Input
 const nama = "Fadly";
-const dm = "DM 5000";
-const jumlah = 1;
+const hp = "Redmi 10C";
+const jumlah = 3;
 const member = true;
 
 //Input harga
 let harga;
-switch (dm) {
-  case "DM 1000":
-    harga = 100000 * jumlah;
+switch (hp) {
+  case "Redmi 10A":
+    harga = 1500000 * jumlah;
     break;
-  case "DM 2000":
-    harga = 200000 * jumlah;
+  case "Redmi 10C":
+    harga = 1800000 * jumlah;
     break;
-  case "DM 3000":
-    harga = 300000 * jumlah;
+  case "Redmi Note 10":
+    harga = 2500000 * jumlah;
     break;
-  case "Dm 4000":
-    harga = 400000 * jumlah;
+  case "Redmi Note 10 Pro":
+    harga = 3500000 * jumlah;
     break;
-  case "DM 5000":
-    harga = 500000 * jumlah;
-}
+  case "Redmi Note 11 Pro":
+    harga = 3999999 * jumlah;
+    break;
+    default:
+      harga=0;
+  }
 
 //Input diskon
 let diskon = 0;
@@ -33,7 +36,7 @@ if (member) {
 }
 //Output
 document.getElementById("nama").innerHTML = nama;
-document.getElementById("dm").innerHTML = dm;
+document.getElementById("hp").innerHTML = hp;
 document.getElementById("harga").innerHTML = harga.toLocaleString();
 document.getElementById("diskon").innerHTML = diskon.toLocaleString();
 document.getElementById("total").innerHTML = total.toLocaleString();
