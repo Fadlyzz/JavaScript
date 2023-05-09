@@ -31,7 +31,7 @@ switch (hp) {
 //Input diskon
 let diskon = 0;
 if (member) {
-  diskon = harga * 0.25;
+  diskon = harga * 0.1;
   total = harga - diskon;
 }
 //Output
