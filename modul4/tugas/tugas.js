@@ -37,6 +37,7 @@ if (member) {
 //Output
 document.getElementById("nama").innerHTML = nama;
 document.getElementById("hp").innerHTML = hp;
+document.getElementById("jumlah").innerHTML = jumlah+" Unit"
 document.getElementById("harga").innerHTML = harga.toLocaleString();
 document.getElementById("diskon").innerHTML = diskon.toLocaleString();
 document.getElementById("total").innerHTML = total.toLocaleString();
