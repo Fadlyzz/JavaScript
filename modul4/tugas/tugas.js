@@ -3,7 +3,7 @@
 //Input
 const nama = "Fadly";
 const hp = "Redmi 10C";
-const jumlah = 3;
+const jumlah = 2;
 const member = true;
 
 //Input harga
