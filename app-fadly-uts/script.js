@@ -1,4 +1,4 @@
-const nilai = "900";
+var nilai = '';
 if (nilai=>85 nilai<=100) {
     document.write("A");
 } else if (nilai>=79) {

@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Nilai Mahasiswa</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Form Nilai Mahasiswa</h2>
-
-  <form action="proses.php" method="post">
-    <label for="nama">Nama Mahasiswa</label>
-    <input type="text" id="nama" name="nama" required><br><br>
-
-    <label for="nim">NIM Mahasiswa</label>
-    <input type="text" id="nim" name="nim" required><br><br>
-
-    <label for="matkul">Mata Kuliah</label>
+<div class="box">
+  <div class="title">Form Nilai Mahasiswa</div>
+  <form action="#">
+    <div class="user">
+      <div class="input">
+        <span class="nama">Nama Mahasiswa</span>
+        <input type="text" placeholder="Masukan Nama" required>
+      </div>
+      <div class="input">
+        <span class="nim">NIM</span>
+        <input type="text" placeholder="Masukan NIM" required>
+      </div>
+    </div>
+    <label for="matkul" class="matkul" >Mata Kuliah
     <select id="matkul" name="matkul" required>
         <option value="pilih">Pilih Mata Kuliah</option>
         <option value="kalkulus">Kalkulus 2</option>
@@ -27,12 +34,12 @@
         <option value="pancasila">Pendidikan Pancasila</option>
         <option value="algoritma">Algoritma</option>
         <option value="desain">Desain Perangkat Lunak</option>
-    </select><br><br>
-    <label for="nilai">Nilai</label>
+    </select>
+    </label>
+    <label for="nilai">Nilai</label><br>
     <input type="number" id="nilai" name="nilai" min="0" max="100" required><br><br>
-
-    <button>Submit</button>
-    <button type="reset">Reset</button>
+        <button class="reset" type="reset">Reset</button>
+        <button class="submit">Submit</button>
   </form>
 <script src="script.js"></script>
 </body>
