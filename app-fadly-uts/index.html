@@ -8,22 +8,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="box">
-  <div class="title">Form Nilai Mahasiswa</div>
-  <form action="#">
-    <div class="user">
-      <div class="input">
-        <span class="nama">Nama Mahasiswa</span>
-        <input type="text" placeholder="Masukan Nama" required>
-      </div>
-      <div class="input">
-        <span class="nim">NIM</span>
-        <input type="text" placeholder="Masukan NIM" required>
-      </div>
-    </div>
+  <div class="box" >
+  <h1>Form Nilai Mahasiswa</h1>
+  <form id="nilai-form">
+        <label for="nama">Nama Mahasiswa</span>
+        <input type="text" id="nama" name="nama" placeholder="Masukan Nama" required>
+
+        <label for="nim">NIM</span>
+        <input type="text" id="nim" name="nim" placeholder="Masukan NIM" required>
+
     <label for="matkul" class="matkul" >Mata Kuliah
-    <select id="matkul" name="matkul" required>
-        <option value="pilih">Pilih Mata Kuliah</option>
+    <select id="matkul" name="matkul" aria-placeholder="Pilih" required>
         <option value="kalkulus">Kalkulus 2</option>
         <option value="praktik">Praktik Pemrograman 2</option>
         <option value="Pemrograman">Pemrograman 2</option>
@@ -37,10 +32,29 @@
     </select>
     </label>
     <label for="nilai">Nilai</label><br>
-    <input type="number" id="nilai" name="nilai" min="0" max="100" required><br><br>
+    <input type="number" id="nilai" name="nilai" min="0" max="100" step="1" required><br><br>
         <button class="reset" type="reset">Reset</button>
-        <button class="submit">Submit</button>
+        <button class="submit" type="submit">Submit</button>
+        <div>
+          <a href="output.html" type="submit" class="submit">Lihat</a>
+        </div>
   </form>
+  </div>
+  <div id="result" class="result" style="display: none;">
+    <h2>Hasil</h2>
+    <label>NIM:</label>
+    <div>
+    <span id="result-nim" class="result-value"></span><br>
+
+    <label>Nama:</label> <span id="result-nama" class="result-value"></span><br>
+
+    <label>Mata Kuliah:</label> <span id="result-matkul" class="result-value"></span><br>
+
+    <label>Nilai Huruf:</label> <span id="result-nilai-huruf" class="result-value"></span><br>
+
+    <label>Indeks Nilai:</label> <span id="result-indeks-nilai" class="result-value"></span>
+</div>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
