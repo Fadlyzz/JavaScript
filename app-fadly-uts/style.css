@@ -119,6 +119,10 @@ form .user .input{
     font-weight: 400;
     font-weight: bold;
 }
+output{
+  display: block;
+
+}
 
 .container {
   max-width: 800px;
@@ -185,7 +189,7 @@ p {
 
 .navbar {
     background-color: #333;
-    margin-top: 5;
+    margin-top: 0;
     margin-bottom: 50%;
     position: absolute;
     color: #fff;

@@ -1,0 +1,70 @@
+/*CSS Array*/
+body {
+    background: linear-gradient(135deg, #f5ab99, #feb47b, #ff7e5f, #765285,#351c4d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+}
+h1 {
+    position: absolute;
+    display: flex;
+    margin-top: 20%;
+    margin-bottom: 50%;
+    text-align: center;
+  }
+    table {
+      max-width: 400px;
+      width: 100%;
+      padding: 26px 26px;
+      background-color: #fff;
+      border-radius: 7px;
+      position: absolute;
+      display: flex;
+      width: 50%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      border: none;
+      cursor: pointer;
+    }
+  
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    th {
+      background-color: #f2f2f2;
+    }
+    form {
+      position: absolute;
+      margin-bottom: 25%;
+      display: flex;
+      gap: 5px;
+    }
+  
+    input[type="text"], input[type="number"] {
+      display: flex;
+      padding: 5px;
+      width: 200px;
+    }
+  
+    input[type="submit"] {
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  
+    .action-buttons {
+      display: flex;
+      gap: 5px;
+    }
