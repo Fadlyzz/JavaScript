@@ -119,3 +119,99 @@ form .user .input{
     font-weight: 400;
     font-weight: bold;
 }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.profile-pic {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.contact-info {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.contact-info a {
+  display: inline-block;
+  margin: 0 10px;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #333;
+}
+
+.container .wa{
+    display: block;
+  margin: 0 auto;
+  max-width: 24px;
+  border-radius: 50%;
+}
+.container .ig{
+    display: block;
+    margin: 0 auto;
+    max-width: 21px;
+    border-radius: 50%;
+}
+.container .fb{
+    display: block;
+    margin: 0 auto;
+    max-width: 32px;
+    border-radius: 50%;
+}
+
+.navbar {
+    background-color: #333;
+    margin-top: 5;
+    margin-bottom: 50%;
+    position: absolute;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .navbar ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+
+  .navbar ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+  }
