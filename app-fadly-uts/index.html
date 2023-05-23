@@ -20,28 +20,29 @@
     <form id="nilai-form" action="output.html" method="GET">
           <label for="nama">Nama Mahasiswa</span>
           <input type="text" id="nama" name="nama" placeholder="Masukan Nama" required>
-
           <label for="nim">NIM</span>
           <input type="text" id="nim" name="nim" placeholder="Masukan NIM" required>
 
       <label for="matkul" class="matkul" >Mata Kuliah
       <select id="matkul" name="matkul" required>
-          <option value="kalkulus">Kalkulus 2</option>
-          <option value="praktik">Praktik Pemrograman 2</option>
-          <option value="Pemrograman">Pemrograman 2</option>
-          <option value="inggris">Bahasa Inggris</option>
-          <option value="indonesia">Bahasa indonesia</option>
-          <option value="arsitektur">Arsitektur Komputer</option>
-          <option value="diskrit">Diskrit 1</option>
-          <option value="pancasila">Pendidikan Pancasila</option>
-          <option value="algoritma">Algoritma</option>
-          <option value="desain">Desain Perangkat Lunak</option>
+          <option value="Kalkulus">Kalkulus 2</option>
+          <option value="Praktik Pemrograman">Praktik Pemrograman 2</option>
+          <option value="Pemrograman Komputer">Pemrograman Komputer 2</option>
+          <option value="Bahasa Inggris">Bahasa Inggris</option>
+          <option value="Bahasa Indonesia">Bahasa indonesia</option>
+          <option value="Arsitektur Komputer">Arsitektur Komputer</option>
+          <option value="Diskrit 1">Diskrit 1</option>
+          <option value="Pancasila">Pendidikan Pancasila</option>
+          <option value="Algoritma">Algoritma</option>
+          <option value="Desain Perangkat Lunak">Desain Perangkat Lunak</option>
       </select>
       </label>
       <label for="nilai">Nilai</label><br>
       <input type="number" id="nilai" name="nilai" min="0" max="100" step="1" required><br><br>
-          <button class="reset" type="reset">Reset</button><br><br>
-          <button class="submit" type="submit">Tampil</button><br><br><br>
+      <div class="button-container">
+        <button class="reset" type="reset">Reset</button>
+        <button class="submit" type="submit">Tampil</button>
+    </div>
           </div>
     </form>
     </div>
