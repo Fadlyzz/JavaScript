@@ -68,3 +68,36 @@ h1 {
       display: flex;
       gap: 5px;
     }
+    
+.navbar {
+  background-color: #333;
+  margin-top: 0;
+  margin-bottom: 50%;
+  position: absolute;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.navbar ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.navbar ul li a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}

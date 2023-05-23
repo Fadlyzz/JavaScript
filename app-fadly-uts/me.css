@@ -5,7 +5,7 @@ h1 {
 }
 body {
     background: linear-gradient(135deg, #f5ab99, #feb47b, #ff7e5f, #765285,#351c4d);
-    display: table-row;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -110,6 +110,7 @@ form .user .input{
 }
 
 .result label {
+    display: block;
     font-weight: 500;
     margin-bottom: 5px;
 }
@@ -118,9 +119,9 @@ form .user .input{
     font-weight: 400;
     font-weight: bold;
 }
-.box output{
+output{
     margin: 0;
-    display: contents;
+    display: flex;
     position: absolute;
     margin-bottom: 20%;
 }
