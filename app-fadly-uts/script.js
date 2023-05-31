@@ -52,3 +52,6 @@ const form = document.getElementById('nilai-form');
         form.addEventListener('reset', function() {
             resultDiv.style.display = 'none';
         });
+        //save as pdf
+
+          
