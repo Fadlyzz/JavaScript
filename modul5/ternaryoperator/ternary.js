@@ -1,4 +1,4 @@
-var angka = prompt("Masukkan Angka");
+var angka = prompt("Masukkan Angka Negatif atau Positif");
 
 var jenisAngka = angka >= 0 ? "Positif" : "Negatif";
 
