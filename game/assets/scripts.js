@@ -41,33 +41,46 @@ const pickRandom = (array, items) => {
 
   return randomPicks;
 };
+
 const generateGame = () => {
   const dimensions = selectors.board.getAttribute("data-dimension");
 
   if (dimensions % 2 !== 0) {
-    throw new Error("The dimension of the board must bean even number.");
+    throw new Error("The dimension of the board must be an even number.");
   }
 
-  const emojis = ["🐶", "🐱", "🐭", "🐹", "🐷", "🦊", "🐻", "🐼"];
-  const picks = pickRandom(emojis, (dimensions * dimensions) / 2);
+  const image = [
+    "assets/foto/1.png",
+    "assets/foto/2.png",
+    "assets/foto/3.png",
+    "assets/foto/4.png",
+    "assets/foto/5.png",
+    "assets/foto/6.png",
+    "assets/foto/7.png",
+    "assets/foto/8.png",
+  ];
+  const picks = pickRandom(image, (dimensions * dimensions) / 2);
   const items = shuffle([...picks, ...picks]);
   const cards = `
-        <div class="board" style="grid-template-columns:repeat(${dimensions}, auto)">
-            ${items
-              .map(
-                (item) => `
-                <div class="card">
-                    <div class="card-front"></div>
-                    <div class="card-back">${item}</div>
-        </div>
-    `
-              )
-              .join("")}
+    <div class="board" style="grid-template-columns:repeat(${dimensions}, auto)">
+      ${items
+        .map(
+          (item) => `
+            <div class="card">
+              <div class="card-front"></div>
+              <div class="card-back"><img src="${item}"></div>
+            </div>
+          `
+        )
+        .join("")}
     </div>
-    `;
+  `;
   const parser = new DOMParser().parseFromString(cards, "text/html");
 
-  selectors.board.replaceWith(parser.querySelector(".board"));
+  selectors.boardContainer.replaceChild(
+    parser.querySelector(".board"),
+    selectors.board
+  );
 };
 
 const startGame = () => {
@@ -78,7 +91,7 @@ const startGame = () => {
     state.totalTime++;
 
     selectors.moves.innerText = `${state.totalFlips} moves`;
-    selectors.timer.innerText = `time:${state.totalTime} sec`;
+    selectors.timer.innerText = `Time: ${state.totalTime} sec`;
   }, 1000);
 };
 
@@ -105,7 +118,10 @@ const flipCard = (card) => {
   if (state.flippedCards === 2) {
     const flippedCards = document.querySelectorAll(".flipped:not(.matched)");
 
-    if (flippedCards[0].innerText === flippedCards[1].innerText) {
+    if (
+      flippedCards[0].querySelector(".card-back img").src ===
+      flippedCards[1].querySelector(".card-back img").src
+    ) {
       flippedCards[0].classList.add("matched");
       flippedCards[1].classList.add("matched");
     }
@@ -120,17 +136,18 @@ const flipCard = (card) => {
     setTimeout(() => {
       selectors.boardContainer.classList.add("flipped");
       selectors.win.innerHTML = `
-            <span class="win-text">
-            You won!<br />
-            with <span class="highlight">${state.totalFlips}</span> moves<br /> 
-            under <span class="highlight">${state.totalTime}</span> seconds
-            </span>
-        `;
+        <span class="win-text">
+          You won!<br />
+          with <span class="highlight">${state.totalFlips}</span> moves<br /> 
+          under <span class="highlight">${state.totalTime}</span> seconds
+        </span>
+      `;
 
       clearInterval(state.loop);
     }, 1000);
   }
 };
+
 const attachEventListeners = () => {
   document.addEventListener("click", (event) => {
     const eventTarget = event.target;
@@ -148,4 +165,6 @@ const attachEventListeners = () => {
     }
   });
 };
-generateGame(attachEventListeners());
+
+generateGame();
+attachEventListeners();
