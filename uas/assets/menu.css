@@ -1,0 +1,214 @@
+/* Style untuk navigasi */
+header {
+  background-color: #333;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Style untuk tagline game */
+.namagame {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Style untuk deskripsi game */
+.description {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 18px;
+  color: #ff00fb;
+}
+
+/* Style untuk tombol masuk ke game */
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  margin-top: 30px;
+  background-color: #40FF07;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0AF56F;
+}
+
+/* Style untuk footage sosial media */
+.footage {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.social-media a {
+  display: inline-block;
+  margin: 0 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  animation: rotate 4s linear infinite;
+}
+
+.social-media a:hover {
+  background-color: #666;
+}
+
+/* Animasi latar belakang */
+body {
+  background: linear-gradient(45deg, aqua);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Style untuk footer */
+.footer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Style untuk tombol profil */
+.profile-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.profile-button button {
+  padding: 12px 24px;
+  background-color: #333;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-button button:hover {
+  background-color: #666;
+}
+
+/* Style untuk gambar */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-game {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo-perusahaan {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.social-media {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.social-media a {
+  display: inline-block;
+  margin: 0 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  animation: rotate 4s linear infinite;
+}
+
+.dev {
+  position: absolute;
+  bottom: 5%;
+  display: inline-block;
+  margin: 0 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.dev img {
+  width: 100%;
+  height: auto;
+}
+
+.dev-button:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}

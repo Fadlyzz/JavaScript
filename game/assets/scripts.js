@@ -15,6 +15,7 @@ const state = {
   loop: null,
 };
 
+// Fungsi untuk mengacak urutan elemen dalam array
 const shuffle = (array) => {
   const clonedArray = [...array];
 
@@ -29,6 +30,7 @@ const shuffle = (array) => {
   return clonedArray;
 };
 
+// Fungsi untuk memilih elemen secara acak dari array
 const pickRandom = (array, items) => {
   const clonedArray = [...array];
   const randomPicks = [];
@@ -41,6 +43,9 @@ const pickRandom = (array, items) => {
 
   return randomPicks;
 };
+
+// eslint-disable-next-line no-unused-vars
+let currentLevel = 1; // Variabel untuk menyimpan level saat ini
 
 const generateGame = () => {
   const dimensions = selectors.board.getAttribute("data-dimension");
@@ -59,8 +64,10 @@ const generateGame = () => {
     "assets/foto/7.png",
     "assets/foto/8.png",
   ];
-  const picks = pickRandom(image, (dimensions * dimensions) / 2);
-  const items = shuffle([...picks, ...picks]);
+
+  const picks = pickRandom(image, (dimensions * dimensions) / 2); // Memilih gambar-gambar secara acak untuk level saat ini
+  const items = shuffle([...picks, ...picks]); // Mengacak urutan gambar-gambar
+
   const cards = `
     <div class="board" style="grid-template-columns:repeat(${dimensions}, auto)">
       ${items
@@ -75,6 +82,7 @@ const generateGame = () => {
         .join("")}
     </div>
   `;
+
   const parser = new DOMParser().parseFromString(cards, "text/html");
 
   selectors.boardContainer.replaceChild(
@@ -131,7 +139,7 @@ const flipCard = (card) => {
     }, 1000);
   }
 
-  // If there are no more cards that we can flip, we won the game
+  // Jika tidak ada lagi kartu yang bisa dibalikkan, kita menang dalam permainan
   if (!document.querySelectorAll(".card:not(.flipped)").length) {
     setTimeout(() => {
       selectors.boardContainer.classList.add("flipped");
@@ -144,6 +152,10 @@ const flipCard = (card) => {
       `;
 
       clearInterval(state.loop);
+
+      currentLevel++; // Perbarui level saat ini
+
+      generateGame(); // Panggil fungsi untuk menghasilkan level selanjutnya
     }, 1000);
   }
 };
