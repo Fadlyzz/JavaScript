@@ -41,8 +41,12 @@ button.addEventListener("mouseout", function () {
 // Animasi profil dev
 const profdev = document.getElementById("profil");
 profil.addEventListener("mouseover", function () {
-  this.style.transform = "scale(2.1)";
+  this.style.transform = "scale(1.5)";
 });
 profil.addEventListener("mouseout", function () {
   this.style.transform = "scale(1)";
 });
+
+var nama1 = ["Profil"];
+var namagua = document.getElementById("namagua");
+namagua.innerHTML = nama1[0];

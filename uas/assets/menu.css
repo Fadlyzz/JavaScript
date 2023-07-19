@@ -1,7 +1,21 @@
 /* Style untuk navigasi */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  background: linear-gradient(90deg, rgba(91, 30, 159, 1) 0%, rgba(77, 39, 182, 1) 100%);
+}
 header {
-  background-color: #333;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content:space-between;
@@ -50,10 +64,11 @@ nav li a {
 }
 
 .button {
+  font-family: Arial, Helvetica, sans-serif;
   display: inline-block;
   padding: 12px 24px;
   margin-top: 30px;
-  background-color: #40FF07;
+  background-color: dodgerblue;
   color: white;
   font-size: 18px;
   text-decoration: none;
@@ -62,7 +77,7 @@ nav li a {
 }
 
 .button:hover {
-  background-color: #0AF56F;
+  background-color: #8fff87;
 }
 
 /* Style untuk footage sosial media */
@@ -85,7 +100,7 @@ nav li a {
   margin: 0 10px;
   width: 40px;
   height: 40px;
-  background-color: #333;
+  background-color: #525252;
   color: white;
   font-size: 24px;
   text-align: center;
@@ -97,7 +112,7 @@ nav li a {
 }
 
 .social-media a:hover {
-  background-color: #666;
+  background-color: #ffffff;
 }
 
 /* Animasi latar belakang */
@@ -183,7 +198,7 @@ body {
 
 .dev {
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
   display: inline-block;
   margin: 0 10px;
   width: 50px;
@@ -211,4 +226,13 @@ body {
   position: absolute;
   bottom: 20px;
   right: 20px;
+}
+
+.prof {
+  display: flex;
+  position: absolute;
+  bottom: 5%;
+  text-align: center;
+  margin: 0 10px;
+  
 }
