@@ -8,7 +8,7 @@ const gravity = 0.5;
 
 class Player {
   constructor() {
-    this.speed = 9;
+    this.speed = 5;
     this.position = {
       x: 100,
       y: 100,
@@ -261,7 +261,7 @@ function animate() {
         platform.position.x -= player.speed;
       });
       genericObjects.forEach((genericObject) => {
-        genericObject.position.x -= player.speed * 0.66;
+        genericObject.position.x -= player.speed * 0.5;
       });
     } else if (keys.left.pressed && scrollOffset > 0) {
       scrollOffset -= player.speed;
@@ -269,7 +269,7 @@ function animate() {
         platform.position.x += player.speed;
       });
       genericObjects.forEach((genericObject) => {
-        genericObject.position.x += player.speed * 0.66;
+        genericObject.position.x += player.speed * 0.5;
       });
     }
   }
@@ -480,7 +480,7 @@ addEventListener("keydown", ({ keyCode }) => {
       break;
     case 87:
       console.log("Atas");
-      player.velocity.y -= 10;
+      player.velocity.y -= 11;
       break;
   }
 });
