@@ -1,18 +1,27 @@
+// Menginisialisasi dan Memanggil canvas
 const canvas = document.querySelector("canvas");
+// Metode mendapat objek 2 dimensi
 const c = canvas.getContext("2d");
 
+// Mengatur lebar dan tinggi canvas
 canvas.width = 1024;
 canvas.height = 576;
 
+// gravitasi
 const gravity = 0.5;
 
+// Deklarasi Player
 class Player {
+  // Properti Player
   constructor() {
+    // Kecepatan player
     this.speed = 5;
+    // Menyimpan posisi player dalam layar
     this.position = {
       x: 100,
       y: 100,
     };
+    // Menyimpan kecepatan player dalam 1 frame
     this.velocity = {
       x: 0,
       y: 1,
@@ -40,8 +49,10 @@ class Player {
     this.currentCropWidth = 177;
   }
 
+  // Metode Menggambar Player didalam Canvas
   draw() {
     c.drawImage(
+      //  Menyimpan sprite gambar
       this.currentSprite,
       this.currentCropWidth * this.frames,
       0,
@@ -53,6 +64,8 @@ class Player {
       this.height
     );
   }
+
+  //Metode untuk memperbarui posisi dan Animasi gambar Player
   update() {
     this.frames++;
 
@@ -78,7 +91,7 @@ class Player {
   }
 }
 
-// Di dalam kelas platform
+// Membuat Objek Platform
 class Platform {
   constructor({ x, y, image }) {
     this.position = {
@@ -103,6 +116,7 @@ class Platform {
   }
 }
 
+// Membuat Objek generic
 class GenericObject {
   constructor({ x, y, image }) {
     this.position = {
@@ -127,6 +141,8 @@ class GenericObject {
   }
 }
 
+// Mengambil dan Menginisialisasi gambar untuk game
+// memberikan atribut src
 const hills = document.getElementById("hills");
 const hillsImage = new Image();
 hillsImage.src = hills.src;
@@ -175,10 +191,11 @@ const keys = {
 
 let scrollOffset = 0;
 
-// Function Mengulang Level
+// Function Level 1
 function initLevel1() {
   player = new Player();
   platforms = [
+    // Daftar Platform level 1
     new Platform({
       x: platformImage.width * 4 + 300 - 2 + platformSmallTallImage.width,
       y: 270,
@@ -214,9 +231,11 @@ function initLevel1() {
       y: 470,
       image: platformImage,
     }),
+    // Tambahkan Platform lainnya unruk level 1
   ];
 
   genericObjects = [
+    // Daftar generic untuk level 1
     new GenericObject({
       x: -1,
       y: -1,
@@ -227,22 +246,29 @@ function initLevel1() {
       y: -1,
       image: hillsImage,
     }),
+    // Tambahkan objek generic lainnya untuk level 1
   ];
 
   scrollOffset = 0;
 }
+
+// Menggambar seluruh platform dan objek generik dan loop animasi
 function animate() {
   requestAnimationFrame(animate);
   c.fillStyle = "white";
   c.fillRect(0, 0, canvas.width, canvas.height);
 
   genericObjects.forEach((genericObject) => {
+    // gambar objek generic
     genericObject.draw();
   });
 
   platforms.forEach((platform) => {
+    // gambar objek platform
     platform.draw();
   });
+
+  // Perbarui Player
   player.update();
 
   if (keys.right.pressed && player.position.x < 400) {
@@ -274,7 +300,7 @@ function animate() {
     }
   }
 
-  // Objek Platform
+  // mendeteksi tabrakan antara player dan platform
   platforms.forEach((platform) => {
     if (
       player.position.y + player.height <= platform.position.y &&
@@ -342,10 +368,11 @@ function animate() {
 initLevel1();
 animate();
 
-// Function Mengulang Level
+// Function level 2
 function initLevel2() {
   player = new Player();
   platforms = [
+    // Daftar platform level 2
     new Platform({
       x: platformImage.width * 4 + 300 - 2 + platformSmallTallImage.width,
       y: 270,
@@ -381,6 +408,7 @@ function initLevel2() {
       y: 470,
       image: platformImage,
     }),
+    // tambahkan platform level 2 lainnya
   ];
 
   genericObjects = [
@@ -394,6 +422,7 @@ function initLevel2() {
       y: -1,
       image: hillsImage,
     }),
+    // Tambahkan objek generik lainnya untuk level 2
   ];
 
   scrollOffset = 0;
@@ -465,26 +494,31 @@ function initLevel2() {
 initLevel2();
 animate();
 
+// tombol pergerakan player
 addEventListener("keydown", ({ keyCode }) => {
   console.log(keyCode);
   switch (keyCode) {
     case 65:
+      // code 65 = "A"
       console.log("Kiri");
       keys.left.pressed = true;
       currentKey = "left";
       break;
     case 68:
+      // code 68 = "D"
       console.log("Kanan");
       keys.right.pressed = true;
       currentKey = "right";
       break;
     case 87:
+      // code 87 = "W"
       console.log("Atas");
       player.velocity.y -= 11;
       break;
   }
 });
 
+// tombol player berhenti
 addEventListener("keyup", ({ keyCode }) => {
   switch (keyCode) {
     case 65:
