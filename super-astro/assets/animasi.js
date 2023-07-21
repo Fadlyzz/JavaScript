@@ -1,5 +1,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+// Animasi start
+const start = document.getElementById("start");
+start.addEventListener("mouseover", function () {
+  this.style.transform = "scale(1.4)";
+});
+start.addEventListener("mouseout", function () {
+  this.style.transform = "scale(1)";
+});
 
 // Animasi tombol Facebook
 const prof = document.getElementById("sos1");
@@ -28,16 +36,6 @@ sos3.addEventListener("mouseout", function () {
   this.style.transform = "scale(1)";
 });
 
-// Animasi tombol masuk ke game
-const button = document.getElementById("gameButton");
-button.addEventListener("mouseover", function () {
-  this.style.transform = "scale(1.2)";
-});
-
-button.addEventListener("mouseout", function () {
-  this.style.transform = "scale(1)";
-});
-
 // Animasi profil dev
 const profdev = document.getElementById("profil");
 profil.addEventListener("mouseover", function () {
@@ -50,3 +48,11 @@ profil.addEventListener("mouseout", function () {
 var nama1 = ["Profil"];
 var namagua = document.getElementById("namagua");
 namagua.innerHTML = nama1[0];
+
+// Nama Player
+function savePlayerName(event) {
+  event.preventDefault();
+  const playerNameInput = document.getElementById("namaPlayer").value;
+  localStorage.setItem("playerName", playerNameInput);
+  window.location.href = "game.html";
+}

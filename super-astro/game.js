@@ -7,6 +7,11 @@ const c = canvas.getContext("2d");
 canvas.width = 1024;
 canvas.height = 576;
 
+// Memanggil Nama Player
+const playerName = localStorage.getItem("playerName");
+const playerNameElement = document.getElementById("namaPlayer");
+playerNameElement.textContent = playerName ? playerName : "Guest";
+
 // gravitasi
 const gravity = 0.5;
 
@@ -179,6 +184,76 @@ let player = new Player();
 let platforms = [];
 let genericObjects = [];
 let currentKey;
+
+// Pop Up
+function showPopup(message, callback) {
+  const popup = document.getElementById("popup");
+  const btnNextLevel = document.getElementById("btnNextLevel");
+
+  // Mengambil Pop up
+  const popupMessage = popup.querySelector("p");
+  popupMessage.textContent = message;
+
+  // Menampilkan Pop up
+  popup.style.display = "block";
+
+  // Klik
+  btnNextLevel.onclick = () => {
+    // Sembunyikan pop up
+    popup.style.display = "none";
+
+    // Memanggil fuction
+    if (callback && typeof callback === "function") {
+      callback();
+    }
+  };
+}
+
+// tombol pergerakan player
+addEventListener("keydown", ({ keyCode }) => {
+  console.log(keyCode);
+  switch (keyCode) {
+    case 65:
+      // code 65 = "A"
+      console.log("Kiri");
+      keys.left.pressed = true;
+      currentKey = "left";
+      break;
+    case 68:
+      // code 68 = "D"
+      console.log("Kanan");
+      keys.right.pressed = true;
+      currentKey = "right";
+      break;
+    case 87:
+      // code 87 = "W"
+      console.log("Atas");
+      player.velocity.y -= 11;
+      break;
+  }
+});
+
+// tombol player berhenti
+addEventListener("keyup", ({ keyCode }) => {
+  switch (keyCode) {
+    case 65:
+      console.log("Berhenti");
+      keys.left.pressed = false;
+      break;
+    case 83:
+      console.log("Berhenti");
+      player.velocity.y = 0;
+      break;
+    case 68:
+      console.log("Berhenti");
+      keys.right.pressed = false;
+      break;
+    case 87:
+      console.log("Berhenti");
+      break;
+  }
+});
+
 
 const keys = {
   right: {
@@ -354,8 +429,9 @@ function animate() {
 
   // Kondisi Menang
   if (scrollOffset > platformImage.width * 5 + 300 - 2) {
-    console.log("You Win");
-    initLevel2();
+    showPopup("You Won !!", () => {
+      initLevel2();
+    });
   }
 
   // Kondisi Kalah
@@ -364,9 +440,6 @@ function animate() {
     initLevel1();
   }
 }
-
-initLevel1();
-animate();
 
 // Function level 2
 function initLevel2() {
@@ -389,17 +462,17 @@ function initLevel2() {
       image: platformImage,
     }),
     new Platform({
-      x: platformImage.width * 2 + 100,
+      x: platformImage.width * 2 + 300,
       y: 470,
       image: platformImage,
     }),
     new Platform({
-      x: platformImage.width * 3 + 300,
+      x: platformImage.width * 3 + 600,
       y: 470,
       image: platformImage,
     }),
     new Platform({
-      x: platformImage.width * 4 + 300 - 2,
+      x: platformImage.width * 4 + 1000 - 2,
       y: 470,
       image: platformImage,
     }),
@@ -482,7 +555,7 @@ function initLevel2() {
   // Kondisi Menang
   if (scrollOffset > platformImage.width * 5 + 300 - 2) {
     console.log("You Win");
-    initLevel2();
+    initLevel3();
   }
 
   // Kondisi Kalah
@@ -491,50 +564,130 @@ function initLevel2() {
     initLevel2();
   }
 }
-initLevel2();
-animate();
 
-// tombol pergerakan player
-addEventListener("keydown", ({ keyCode }) => {
-  console.log(keyCode);
-  switch (keyCode) {
-    case 65:
-      // code 65 = "A"
-      console.log("Kiri");
-      keys.left.pressed = true;
-      currentKey = "left";
-      break;
-    case 68:
-      // code 68 = "D"
-      console.log("Kanan");
-      keys.right.pressed = true;
-      currentKey = "right";
-      break;
-    case 87:
-      // code 87 = "W"
-      console.log("Atas");
-      player.velocity.y -= 11;
-      break;
-  }
-});
+// Function level 3
+function initLevel3() {
+  player = new Player();
+  platforms = [
+    // Daftar platform level 3
+    new Platform({
+      x: platformImage.width * 4 + 300 - 2 + platformSmallTallImage.width,
+      y: 270,
+      image: platformSmallTallImage,
+    }),
+    new Platform({
+      x: -1,
+      y: 470,
+      image: platformImage,
+    }),
+    new Platform({
+      x: platformImage.width - 3,
+      y: 470,
+      image: platformImage,
+    }),
+    new Platform({
+      x: platformImage.width * 2 + 300,
+      y: 470,
+      image: platformImage,
+    }),
+    new Platform({
+      x: platformImage.width * 3 + 600,
+      y: 470,
+      image: platformImage,
+    }),
+    new Platform({
+      x: platformImage.width * 4 + 1000 - 2,
+      y: 470,
+      image: platformImage,
+    }),
+    new Platform({
+      x: platformImage.width * 5 + 700 - 2,
+      y: 470,
+      image: platformImage,
+    }),
+    // tambahkan platform level 3 lainnya
+  ];
 
-// tombol player berhenti
-addEventListener("keyup", ({ keyCode }) => {
-  switch (keyCode) {
-    case 65:
-      console.log("Berhenti");
-      keys.left.pressed = false;
-      break;
-    case 83:
-      console.log("Berhenti");
+  genericObjects = [
+    new GenericObject({
+      x: -1,
+      y: -1,
+      image: backgroundImage,
+    }),
+    new GenericObject({
+      x: -1,
+      y: -1,
+      image: hillsImage,
+    }),
+    // Tambahkan objek generik lainnya untuk level 3
+  ];
+
+  scrollOffset = 0;
+
+  // Objek Platform
+  platforms.forEach((platform) => {
+    if (
+      player.position.y + player.height <= platform.position.y &&
+      player.position.y + player.height + player.velocity.y >=
+        platform.position.y &&
+      player.position.x + player.width >= platform.position.x &&
+      player.position.x <= platform.position.x + platform.width
+    ) {
       player.velocity.y = 0;
-      break;
-    case 68:
-      console.log("Berhenti");
-      keys.right.pressed = false;
-      break;
-    case 87:
-      console.log("Berhenti");
-      break;
+    }
+  });
+
+  // Frame Player
+  if (
+    keys.right.pressed &&
+    currentKey === "right" &&
+    player.currentSprite !== player.sprites.run.right
+  ) {
+    player.frames = 1;
+    player.currentSprite = player.sprites.run.right;
+    player.currentCropWidth = player.sprites.run.cropWidth;
+    player.width = player.sprites.run.width;
+  } else if (
+    keys.left.pressed &&
+    currentKey === "left" &&
+    player.currentSprite !== player.sprites.run.left
+  ) {
+    player.frames = 1;
+    player.currentSprite = player.sprites.run.left;
+    player.currentCropWidth = player.sprites.run.cropWidth;
+    player.width = player.sprites.run.width;
+  } else if (
+    !keys.right.pressed &&
+    currentKey === "right" &&
+    player.currentSprite !== player.sprites.stand.right
+  ) {
+    player.frames = 1;
+    player.currentSprite = player.sprites.stand.right;
+    player.currentCropWidth = player.sprites.stand.cropWidth;
+    player.width = player.sprites.stand.width;
+  } else if (
+    !keys.left.pressed &&
+    currentKey === "left" &&
+    player.currentSprite !== player.sprites.stand.left
+  ) {
+    player.frames = 1;
+    player.currentSprite = player.sprites.stand.left;
+    player.currentCropWidth = player.sprites.stand.cropWidth;
+    player.width = player.sprites.stand.width;
   }
-});
+
+  // Kondisi Menang
+  if (scrollOffset > platformImage.width * 5 + 300 - 2) {
+    console.log("You Win");
+    initLevel3();
+  }
+
+  // Kondisi Kalah
+  if (player.position.y > canvas.height) {
+    console.log("You Lose");
+    initLevel3();
+  }
+}
+
+initLevel1();
+animate();

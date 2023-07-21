@@ -35,8 +35,17 @@
         <img src="assets/foto/wa.png" width="40" alt="WhatsApp">
       </a>
     </div>
-    <label for="namaPlayer">Nickname:</label>
-    <input type="text" id="namaPlayer">
+    <form onsubmit="savePlayerName(event)">
+      <label for="namaPlayer">Nickname:</label>
+      <input type="text" id="namaPlayer" name="playerName">
+      <div class="button-container">
+        <div class="button" id="gameButton">
+          <button id="start" type="submit" >
+            <img src="assets/foto/start-button.png" href="../super-astro/game.html" alt="Game Icon">
+          </button>
+        </div>
+      </div>
+    </form>
     <div class="dev" id="profil">
       <a href="me.html">
         <img src="assets/foto/gambar.jpg" width="40" alt="Profile">
@@ -45,16 +54,8 @@
     <div class="prof">
       <a id="namagua"></a>
     </div>
-    <div class="copyright">
+    <div class="footer">
       &copy; 2023 Fadlyzz
-    </div>
-    <div class="button-container">
-      <div class="button" id="gameButton">
-        <a href="../super-astro/game.html">
-          <img src="assets/icon/game-icon.png" width="30" alt="Game Icon">
-          Masuk ke Game
-        </a>
-      </div>
     </div>
   </div>
   <script src="assets/animasi.js"></script>
