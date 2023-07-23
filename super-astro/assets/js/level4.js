@@ -273,12 +273,12 @@ const keys = {
 
 let scrollOffset = 0;
 
-// Function Level 1
-function initLevel1() {
-  drawLevel(1);
+// Function Level
+function initLevel() {
+  drawLevel(4);
   player = new Player();
   platforms = [
-    // Daftar Platform level 1
+    // Daftar Platform level
     new Platform({
       x: platformImage.width * 4 + 300 - 2 + platformSmallTallImage.width,
       y: 270,
@@ -314,11 +314,11 @@ function initLevel1() {
       y: 470,
       image: platformImage,
     }),
-    // Tambahkan Platform lainnya unruk level 1
+    // Tambahkan Platform lainnya
   ];
 
   genericObjects = [
-    // Daftar generic untuk level 1
+    // Daftar generic
     new GenericObject({
       x: -1,
       y: -1,
@@ -329,7 +329,7 @@ function initLevel1() {
       y: -1,
       image: hillsImage,
     }),
-    // Tambahkan objek generic lainnya untuk level 1
+    // Tambahkan objek generic lainnya
   ];
 
   scrollOffset = 0;
@@ -437,145 +437,18 @@ function animate() {
 
   // Kondisi Menang
   if (scrollOffset > platformImage.width * 5 + 300 - 2) {
-    showPopup("Kamu Menang, Lanjut ke Level 2?", () => {
-      initLevel2();
+    showPopup("Kamu Menang!!", () => {
+      window.location.href = "../html/gamelv1.html";
     });
   }
 
   // Kondisi Kalah
   if (player.position.y > canvas.height) {
     showPopup("Mulai Kembali?", () => {
-      initLevel1();
+      initLevel();
     });
   }
 }
 
-// Function level 2
-function initLevel2() {
-  drawLevel(2);
-  player = new Player();
-  platforms = [
-    // Daftar platform level 2
-    new Platform({
-      x: platformImage.width * 4 + 300 - 2 + platformSmallTallImage.width,
-      y: 270,
-      image: platformSmallTallImage,
-    }),
-    new Platform({
-      x: -1,
-      y: 470,
-      image: platformImage,
-    }),
-    new Platform({
-      x: platformImage.width - 3,
-      y: 470,
-      image: platformImage,
-    }),
-    new Platform({
-      x: platformImage.width * 2 + 300,
-      y: 470,
-      image: platformImage,
-    }),
-    new Platform({
-      x: platformImage.width * 3 + 600,
-      y: 470,
-      image: platformImage,
-    }),
-    new Platform({
-      x: platformImage.width * 4 + 1000 - 2,
-      y: 470,
-      image: platformImage,
-    }),
-    new Platform({
-      x: platformImage.width * 5 + 700 - 2,
-      y: 470,
-      image: platformImage,
-    }),
-    // tambahkan platform level 2 lainnya
-  ];
-
-  genericObjects = [
-    new GenericObject({
-      x: -1,
-      y: -1,
-      image: backgroundImage,
-    }),
-    new GenericObject({
-      x: -1,
-      y: -1,
-      image: hillsImage,
-    }),
-    // Tambahkan objek generik lainnya untuk level 2
-  ];
-
-  scrollOffset = 0;
-
-  // Objek Platform
-  platforms.forEach((platform) => {
-    if (
-      player.position.y + player.height <= platform.position.y &&
-      player.position.y + player.height + player.velocity.y >=
-        platform.position.y &&
-      player.position.x + player.width >= platform.position.x &&
-      player.position.x <= platform.position.x + platform.width
-    ) {
-      player.velocity.y = 0;
-    }
-  });
-
-  // Frame Player
-  if (
-    keys.right.pressed &&
-    currentKey === "right" &&
-    player.currentSprite !== player.sprites.run.right
-  ) {
-    player.frames = 1;
-    player.currentSprite = player.sprites.run.right;
-    player.currentCropWidth = player.sprites.run.cropWidth;
-    player.width = player.sprites.run.width;
-  } else if (
-    keys.left.pressed &&
-    currentKey === "left" &&
-    player.currentSprite !== player.sprites.run.left
-  ) {
-    player.frames = 1;
-    player.currentSprite = player.sprites.run.left;
-    player.currentCropWidth = player.sprites.run.cropWidth;
-    player.width = player.sprites.run.width;
-  } else if (
-    !keys.right.pressed &&
-    currentKey === "right" &&
-    player.currentSprite !== player.sprites.stand.right
-  ) {
-    player.frames = 1;
-    player.currentSprite = player.sprites.stand.right;
-    player.currentCropWidth = player.sprites.stand.cropWidth;
-    player.width = player.sprites.stand.width;
-  } else if (
-    !keys.left.pressed &&
-    currentKey === "left" &&
-    player.currentSprite !== player.sprites.stand.left
-  ) {
-    player.frames = 1;
-    player.currentSprite = player.sprites.stand.left;
-    player.currentCropWidth = player.sprites.stand.cropWidth;
-    player.width = player.sprites.stand.width;
-  }
-
-  // Kondisi Menang
-  if (scrollOffset > platformImage.width * 11 + 700 - 2) {
-    showPopup("Kamu Menang, Lanjut ke Level 3?", () => {
-      initLevel2();
-    });
-  }
-
-  // Kondisi Kalah
-  if (player.position.y > canvas.height) {
-    showPopup("Mulai Kembali?", () => {
-      initLevel1();
-    });
-  }
-}
-
-initLevel1();
+initLevel();
 animate();

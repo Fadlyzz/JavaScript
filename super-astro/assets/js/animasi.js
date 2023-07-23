@@ -63,5 +63,5 @@ function savePlayerName(event) {
   event.preventDefault();
   const playerNameInput = document.getElementById("namaPlayer").value;
   localStorage.setItem("playerName", playerNameInput);
-  window.location.href = "game.html";
+  window.location.href = "./html/gamelv1.html";
 }

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Pacifico';
-  src: url(./font/Pacifico.ttf);
+  src: url(../font/Pacifico.ttf);
 }
 
 /* Style untuk navigasi */
@@ -15,7 +15,7 @@ body {
   height: 100vh;
   background-size: cover;
   background-attachment: scroll;
-  background-image: url("../assets/foto/background.png");
+  background-image: url("../foto/background.png");
   background-repeat: no-repeat;
 }
 header {
