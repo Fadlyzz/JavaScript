@@ -1,28 +1,31 @@
+@font-face {
+  font-family: 'pixel';
+  src: url(./font/Pixel.ttf);
+}
+
 /* Style untuk navigasi */
 * {
-  margin: 0;
- padding: 0;
- box-sizing: border-box;
- font-family: 'poppins', sans-serif;
- border: none;
+  margin: 1.5;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif ;
+  border: none;
 }
     
 body {
   height: 100vh;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 5px;
   background-size: cover;
   background-attachment: fixed;
-  background-image: url("/super-astro/assets/foto/gambar.jpg");
+  background-image: url("../assets/foto/background.png");
+  background-repeat: no-repeat;
 }
 header {
-  padding: 15px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content:space-between;
 }
+
 
 nav ul {
   list-style-type: none;
@@ -44,10 +47,11 @@ nav li a {
 
 /* Style untuk tagline game */
 .namagame {
+  font-family: 'pixel';
   text-align: center;
   margin-top: 50px;
   font-size: 24px;
-  color: #333;
+  color: #fff;
 }
 
 /* Style untuk deskripsi game */
@@ -56,16 +60,22 @@ nav li a {
   margin: 20px auto;
   text-align: center;
   font-size: 18px;
+  color: #fff;
+}
+
+.namaPlayer {
+  color: #fff;
 }
 
 .button-container button {
   mix-blend-mode: multiply;
+  filter: contrast(2);
 }
 
 .button img {
   border: none;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 130px;
 }
 
 /* Style untuk footage sosial media */
@@ -195,12 +205,7 @@ nav li a {
   position: absolute;
   bottom: 20px;
   right: 20px;
-}
-
-.copyright {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  color: #fff;
 }
 
 .prof {
@@ -209,6 +214,7 @@ nav li a {
   bottom: 5%;
   text-align: center;
   margin: 0 10px;
+  color: #fff;
   
 }
 label {
@@ -218,10 +224,10 @@ label {
 }
 
 input[type="text"] {
-  width: 50%;
+  width: 80%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #fff;
+  border-radius: 10px;
   margin-bottom: 20px;
 }

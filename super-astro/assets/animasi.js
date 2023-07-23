@@ -36,6 +36,15 @@ sos3.addEventListener("mouseout", function () {
   this.style.transform = "scale(1)";
 });
 
+// Animasi tombol Whatsapp
+const prof3 = document.getElementById("sos4");
+sos4.addEventListener("mouseover", function () {
+  this.style.transform = "scale(1.4)";
+});
+sos4.addEventListener("mouseout", function () {
+  this.style.transform = "scale(1)";
+});
+
 // Animasi profil dev
 const profdev = document.getElementById("profil");
 profil.addEventListener("mouseover", function () {

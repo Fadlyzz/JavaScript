@@ -185,6 +185,14 @@ let platforms = [];
 let genericObjects = [];
 let currentKey;
 
+// Ambil elemen nomor level
+const levelNumberElement = document.getElementById("levelNumber");
+
+// Fungsi untuk mengganti nomor level dan menampilkan di elemen HTML
+function drawLevel(levelNumber) {
+  levelNumberElement.textContent = "Level " + levelNumber;
+}
+
 // Pop Up
 function showPopup(message, callback) {
   const popup = document.getElementById("popup");
@@ -254,7 +262,6 @@ addEventListener("keyup", ({ keyCode }) => {
   }
 });
 
-
 const keys = {
   right: {
     pressed: false,
@@ -268,6 +275,7 @@ let scrollOffset = 0;
 
 // Function Level 1
 function initLevel1() {
+  drawLevel(1);
   player = new Player();
   platforms = [
     // Daftar Platform level 1
@@ -429,20 +437,22 @@ function animate() {
 
   // Kondisi Menang
   if (scrollOffset > platformImage.width * 5 + 300 - 2) {
-    showPopup("You Won !!", () => {
+    showPopup("Kamu Menang, Lanjut ke Level 2?", () => {
       initLevel2();
     });
   }
 
   // Kondisi Kalah
   if (player.position.y > canvas.height) {
-    console.log("You Lose");
-    initLevel1();
+    showPopup("Mulai Kembali?", () => {
+      initLevel1();
+    });
   }
 }
 
 // Function level 2
 function initLevel2() {
+  drawLevel(2);
   player = new Player();
   platforms = [
     // Daftar platform level 2
@@ -553,20 +563,23 @@ function initLevel2() {
   }
 
   // Kondisi Menang
-  if (scrollOffset > platformImage.width * 5 + 300 - 2) {
-    console.log("You Win");
-    initLevel3();
+  if (scrollOffset > platformImage.width * 11 + 700 - 2) {
+    showPopup("Kamu Menang, Lanjut ke Level 3?", () => {
+      initLevel3();
+    });
   }
 
   // Kondisi Kalah
   if (player.position.y > canvas.height) {
-    console.log("You Lose");
-    initLevel2();
+    showPopup("Mulai Kembali?", () => {
+      initLevel1();
+    });
   }
 }
 
 // Function level 3
 function initLevel3() {
+  drawLevel(3)
   player = new Player();
   platforms = [
     // Daftar platform level 3
@@ -676,18 +689,146 @@ function initLevel3() {
     player.width = player.sprites.stand.width;
   }
 
-  // Kondisi Menang
-  if (scrollOffset > platformImage.width * 5 + 300 - 2) {
-    console.log("You Win");
-    initLevel3();
+  // Kondisi Menang lv3
+  if (scrollOffset > platformImage.width * 17 + 1100 - 2) {
+    showPopup("Kamu Menang, Lanjut ke Level 4?", () => {
+      initLevel4();
+    });
   }
 
   // Kondisi Kalah
   if (player.position.y > canvas.height) {
-    console.log("You Lose");
-    initLevel3();
+    showPopup("Mulai Kembali?", () => {
+      initLevel1();
+    });
   }
 }
 
+// Function level 4
+function initLevel4() {
+  drawLevel(4);
+  player = new Player();
+  platforms = [
+    // Daftar platform level 3
+    new Platform({
+      x: platformImage.width * 4 + 300 - 2 + platformSmallTallImage.width,
+      y: 270,
+      image: platformSmallTallImage,
+    }),
+    new Platform({
+      x: -1,
+      y: 470,
+      image: platformImage,
+    }),
+    new Platform({
+      x: platformImage.width - 3,
+      y: 470,
+      image: platformImage,
+    }),
+    new Platform({
+      x: platformImage.width * 2 + 300,
+      y: 470,
+      image: platformImage,
+    }),
+    new Platform({
+      x: platformImage.width * 3 + 600,
+      y: 470,
+      image: platformImage,
+    }),
+    new Platform({
+      x: platformImage.width * 4 + 1000 - 2,
+      y: 470,
+      image: platformImage,
+    }),
+    new Platform({
+      x: platformImage.width * 5 + 700 - 2,
+      y: 470,
+      image: platformImage,
+    }),
+    // tambahkan platform level 3 lainnya
+  ];
+
+  genericObjects = [
+    new GenericObject({
+      x: -1,
+      y: -1,
+      image: backgroundImage,
+    }),
+    new GenericObject({
+      x: -1,
+      y: -1,
+      image: hillsImage,
+    }),
+    // Tambahkan objek generik lainnya untuk level 3
+  ];
+
+  scrollOffset = 0;
+
+  // Objek Platform
+  platforms.forEach((platform) => {
+    if (
+      player.position.y + player.height <= platform.position.y &&
+      player.position.y + player.height + player.velocity.y >=
+        platform.position.y &&
+      player.position.x + player.width >= platform.position.x &&
+      player.position.x <= platform.position.x + platform.width
+    ) {
+      player.velocity.y = 0;
+    }
+  });
+
+  // Frame Player
+  if (
+    keys.right.pressed &&
+    currentKey === "right" &&
+    player.currentSprite !== player.sprites.run.right
+  ) {
+    player.frames = 1;
+    player.currentSprite = player.sprites.run.right;
+    player.currentCropWidth = player.sprites.run.cropWidth;
+    player.width = player.sprites.run.width;
+  } else if (
+    keys.left.pressed &&
+    currentKey === "left" &&
+    player.currentSprite !== player.sprites.run.left
+  ) {
+    player.frames = 1;
+    player.currentSprite = player.sprites.run.left;
+    player.currentCropWidth = player.sprites.run.cropWidth;
+    player.width = player.sprites.run.width;
+  } else if (
+    !keys.right.pressed &&
+    currentKey === "right" &&
+    player.currentSprite !== player.sprites.stand.right
+  ) {
+    player.frames = 1;
+    player.currentSprite = player.sprites.stand.right;
+    player.currentCropWidth = player.sprites.stand.cropWidth;
+    player.width = player.sprites.stand.width;
+  } else if (
+    !keys.left.pressed &&
+    currentKey === "left" &&
+    player.currentSprite !== player.sprites.stand.left
+  ) {
+    player.frames = 1;
+    player.currentSprite = player.sprites.stand.left;
+    player.currentCropWidth = player.sprites.stand.cropWidth;
+    player.width = player.sprites.stand.width;
+  }
+
+  // Kondisi Menang lv4
+  if (scrollOffset > platformImage.width * 5 + 300 - 2) {
+    showPopup("Kamu Menang, Tamat", () => {
+      initLevel1();
+    });
+  }
+
+  // Kondisi Kalah lv4
+  if (player.position.y > canvas.height) {
+    showPopup("Mulai Kembali?", () => {
+      initLevel1();
+    });
+  }
+}
 initLevel1();
 animate();

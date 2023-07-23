@@ -75,15 +75,6 @@ nav {
 .contact-info img:hover {
   transform: scale(1.2);
 }
-.logo {
-  font-size: 1.3rem;
-  font-weight: 800;
-}
-
-.logo a {
-  color: #fff;
-  text-decoration: none;
-}
 
 nav a {
   color: #fff;
